@@ -1,0 +1,35 @@
+<ngx-slick-carousel class="carousel" [config]="slideConfig">
+   <div ngxSlickItem>
+      <div class="bannerStyle slider-img-1" [ngStyle]="{'background-image': 'url(assets/images/book-4.jpg)'}">
+         <div class="ngx-slider-content">
+            <div class="ngx-slider-inner">
+               <h2>Big Page</h2>
+               <h1>Big Collection</h1>
+               <button color="accent" mat-raised-button [routerLink]="['/session/signup']">Join Now</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div ngxSlickItem>
+      <div class="bannerStyle slider-img-2" [ngStyle]="{'background-image': 'url(assets/images/book-3.jpg)'}">
+         <div class="ngx-slider-content">
+            <div class="ngx-slider-inner">
+               <h2>100% Off</h2>
+               <h1>Spend your time here!</h1>
+               <button color="accent" mat-raised-button [routerLink]="['/session/signup']">Join Now</button>
+            </div>
+         </div>
+      </div>
+   </div>
+   <div ngxSlickItem>
+      <div class="bannerStyle slider-img-3" [ngStyle]="{'background-image': 'url(assets/images/book-2.jpg)'}" >
+         <div class="ngx-slider-content">
+            <div class="ngx-slider-inner">
+               <h2>Today's Special</h2>
+               <h1>Free knowledge</h1>
+               <button color="accent" mat-raised-button [routerLink]="['/products/men']">Check Now</button>
+            </div>
+         </div>
+     </div>
+   </div>
+</ngx-slick-carousel>

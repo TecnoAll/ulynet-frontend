@@ -1,0 +1,23 @@
+
+
+  <undely-HomePageTwoSlider [isRTL]="undelyService.isDirectionRtl"></undely-HomePageTwoSlider>
+  
+  <undely-CtaGroup></undely-CtaGroup>
+
+  <undely-LighteningDeals *ngIf="lighteningDealsProducts" [lighteningDeals]="lighteningDealsProducts"></undely-LighteningDeals>
+
+  <undely-TopProducts *ngIf="topProducts" [products]="topProducts" [currency]="undelyService?.currency" (addToCart)="addToCart($event)"></undely-TopProducts>
+   <div class="section-gap pt-0">
+   <div class="container">
+      <div fxLayoutAlign="space-between" class="w-100">
+         <div class="block-title mb-4">
+         <h3>Top Brands</h3>
+         </div>
+      </div>
+      <undely-BrandsLogo [isRTL]="undelyService.isDirectionRtl"></undely-BrandsLogo>
+   </div>
+   </div>
+   <div class="section-gap pb-0">   
+  <undely-SubscribeTwo></undely-SubscribeTwo>
+   
+</div>

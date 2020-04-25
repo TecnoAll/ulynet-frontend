@@ -1,0 +1,23 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+  <div class="mb-4">
+    <mat-form-field class="w-100">
+      <input matInput type="email" placeholder="Correo" formControlName="email" required>
+      <mat-error *ngIf="form.controls.email.errors?.required">EL correo es obligatotio</mat-error>
+    </mat-form-field>
+  </div>
+  <div class="mb-4">
+    <mat-error *ngIf="serverErrors.wrongUser">Este usuario no existe</mat-error>
+    <mat-form-field class="w-100">
+      <input matInput type="password" placeholder="Password" formControlName="password" required>
+      <mat-error *ngIf="form.controls.password.errors?.required">La contraseña es obligatoria</mat-error>
+      <mat-error *ngIf="form.controls.password.hasError('minlength')">La contraseña no es lo suficientemente larga, un mínimo de 6 caracteres</mat-error>
+    </mat-form-field>
+  </div>
+  <mat-error *ngIf="serverErrors.wrongPassword">La contraseña es incorrecta</mat-error>
+  <div class="mb-3">
+    <mat-checkbox formControlName="rememberMe">Recuérdame</mat-checkbox>
+    <span fxFlex></span> <a [routerLink]="['/session/forgot-password']">¿Se te olvidó tu contraseña?</a>
+  </div>
+  <button color="accent" class="button-lg mb-3" mat-raised-button type="submit" [disabled]="!form.valid">iniciar sesión</button>
+  <p>¿No tienes una cuenta? <a [routerLink]="['/session/signup']">Haga clic aquí para crear una</a></p>
+</form>

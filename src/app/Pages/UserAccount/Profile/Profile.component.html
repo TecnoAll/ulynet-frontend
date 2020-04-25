@@ -1,0 +1,23 @@
+<mat-card>
+  <h4>Información del Perfil</h4>
+  <div class="pt-3">
+    <div class="proflie-field mb-3">
+      <label>Nombre:</label>
+      <span>John</span>
+    </div>
+    <div class="proflie-field mb-3">
+      <label>Apellido:</label>
+      <span>Doe</span>
+    </div>
+    <div class="proflie-field mb-3">
+      <label>Genero:</label>
+      <span>Male</span>
+    </div>
+    <div class="proflie-field mb-3">
+      <label>Correo:</label>
+      <span>johnDoe@doe.com</span>
+    </div>
+
+    <button mat-raised-button color="accent" [routerLink]="['edit']" [queryParams]="{type:'info'}">Editar</button>
+  </div>
+</mat-card>

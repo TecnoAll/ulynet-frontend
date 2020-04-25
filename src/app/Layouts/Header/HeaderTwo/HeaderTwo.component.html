@@ -1,0 +1,72 @@
+<mat-toolbar color="primary" class="header-v2">
+   <mat-toolbar-row class="header-v2-top">
+     <div class="container">
+       <div fxLayout="row wrap">
+         <div class="logo-site" fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="35" fxFlex.lg="25%" fxFlex.xl="25%">
+          <undely-AppLogo></undely-AppLogo>
+         </div>
+         <div fxFlex.sm="60" fxHide.xs="true" fxHide.sm="true" fxFlex.md="40" fxFlex.sm.hdie fxFlex.lg="60%" fxFlex.xl="60%" class="align-center">
+            
+            <div>
+               <form class="search-bar show mat-elevation-z4">
+                  <mat-form-field class="search-bar-input">
+                      <input matInput placeholder="Type to search" name="search">
+                      <button mat-button matSuffix mat-icon-button>
+                          <mat-icon>search</mat-icon>
+                        </button>
+                  </mat-form-field>
+              </form>
+            </div>
+         </div>
+         <div fxFlex.xs="50" fxFlex.sm="50" fxFlex.md="25" fxFlex.lg="15%" fxFlex.xl="15%">
+       <span fxFlex></span>
+           <div class="list-flex user-tool">
+             <undely-HeaderCart [currency]="undelyService?.currency" [cartProducts]="undelyService?.localStorageCartProducts" [count]="undelyService?.navbarCartCount" (removeProductData)="openConfirmationPopup($event)"></undely-HeaderCart>
+ 
+             <undely-WishList [currency]="undelyService?.currency" [wishListProducts]="undelyService?.localStorageWishlist" [count]="undelyService?.navbarWishlistProdCount" (removeWishListData)="openWishlistConfirmationPopup($event)" (addAllWishlistToCart)="addAllWishlistToCart($event)" (addToCart)="addToCart($event)"></undely-WishList>
+             <undely-HeaderUserProfileDropdown></undely-HeaderUserProfileDropdown>
+           </div>
+         </div>
+       </div>
+     </div>
+   </mat-toolbar-row>
+   <mat-toolbar-row class="header-v2-bottom main-menu-wrap">
+     <div class="container">
+       <div class="header-v2-bottom-inner">
+         <undely-Menu></undely-Menu>
+    
+       </div>
+     </div>
+   </mat-toolbar-row>
+   <mat-toolbar-row class="responsive-bar relative">
+         <div class="container">
+           <div fxLayoutAlign="space-between">
+          
+             <button class="responsive-toggle" mat-icon-button (click)="toggleSidebar()">
+               <i class="material-icons">menu</i>
+             </button>
+             <div>
+                 <div class="search-box-bar">
+                   <button type="button" mat-mini-fab (click)="toggleSearch()">
+                     <i class="material-icons notranslate">
+                       search
+                     </i>
+                   </button>
+                 </div>
+                 <div class="search-form">
+                   <form>
+                     <input type="text" placeholder="Search and hit enter">
+                     <button type="button" mat-fab class="close-btn" (click)="toggleSearch()">
+                       <i class="material-icons">
+                         close
+                       </i>
+                     </button>
+                   </form>
+                 </div>
+               </div>
+           </div>
+         </div>
+       </mat-toolbar-row>
+ </mat-toolbar>
+ <undely-FixedHeader></undely-FixedHeader>
+ 

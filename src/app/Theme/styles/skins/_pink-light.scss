@@ -1,0 +1,5 @@
+$pink-light-primary: mat-palette($mat-pink, 700, 50, 800);
+$pink-light-accent: mat-palette($mat-blue-grey, 600, 300, 900);
+$pink-light-warn: mat-palette($mat-red, 600);
+
+$pink-light-theme: mat-light-theme($pink-light-primary, $pink-light-accent, $pink-light-warn);

@@ -1,0 +1,87 @@
+@import '~@angular/material/theming';
+@include mat-core();
+
+@import 'theme-reset';
+
+// $primary: rgb(0, 255, 255) !global;
+// $accent: #fff;
+
+.app{
+    &.indigo-light{
+        @import "skins/indigo-light";
+        @include angular-material-theme($indigo-light-theme);
+        @include theme-reset($indigo-light-theme);
+        $primary: mat-color(map-get($indigo-light-theme, primary)) !global;
+        $accent: mat-color(map-get($indigo-light-theme, accent)) !global;
+    }
+    &.teal-light{
+        @import "skins/teal-light";
+        @include angular-material-theme($teal-light-theme);
+        @include theme-reset($teal-light-theme);
+        $primary: mat-color(map-get($teal-light-theme, primary)) !global;
+        $accent: mat-color(map-get($teal-light-theme, accent)) !global;
+    }
+    &.red-light{
+        @import "skins/red-light";
+        @include angular-material-theme($red-light-theme);
+        @include theme-reset($red-light-theme);
+        $primary: mat-color(map-get($red-light-theme, primary)) !global;
+        $accent: mat-color(map-get($red-light-theme, accent)) !global;
+    }
+    &.gray-light{
+        @import "skins/gray-light";
+        @include angular-material-theme($gray-light-theme);
+        @include theme-reset($gray-light-theme);
+        $primary: mat-color(map-get($gray-light-theme, primary)) !global;
+        $accent: mat-color(map-get($gray-light-theme, accent)) !global;
+    }
+    &.teal-dark{
+        @import "skins/teal-dark";
+        @include angular-material-theme($teal-dark-theme);
+        @include theme-reset($teal-dark-theme);
+        $primary: mat-color(map-get($teal-dark-theme, primary)) !global;
+        $accent: mat-color(map-get($teal-dark-theme, accent)) !global;
+    }
+    &.blue-light{
+        @import "skins/blue-light";
+        @include angular-material-theme($blue-light-theme);
+        @include theme-reset($blue-light-theme);
+        $primary: mat-color(map-get($blue-light-theme, primary)) !global;
+        $accent: mat-color(map-get($blue-light-theme, accent)) !global;
+    }
+    &.blue-dark{
+        @import "skins/blue-dark";
+        @include angular-material-theme($blue-dark-theme);
+        @include theme-reset($blue-dark-theme);
+        $primary: mat-color(map-get($blue-dark-theme, primary)) !global;
+        $accent: mat-color(map-get($blue-dark-theme, accent)) !global;
+    }
+    &.green-dark{
+        @import "skins/green-dark";
+        @include angular-material-theme($green-dark-theme);
+        @include theme-reset($green-dark-theme);
+        $primary: mat-color(map-get($green-dark-theme, primary)) !global;
+        $accent: mat-color(map-get($green-dark-theme, accent)) !global;
+    }
+    &.pink-light{
+        @import "skins/pink-light";
+        @include angular-material-theme($pink-light-theme);
+        @include theme-reset($pink-light-theme);
+        $primary: mat-color(map-get($pink-light-theme, primary)) !global;
+        $accent: mat-color(map-get($pink-light-theme, accent)) !global;
+    }
+    &.pink-dark{
+        @import "skins/pink-dark";
+        @include angular-material-theme($pink-dark-theme);
+        @include theme-reset($pink-dark-theme);
+        $primary: mat-color(map-get($pink-dark-theme, primary)) !global;
+        $accent: mat-color(map-get($pink-dark-theme, accent)) !global;
+    }
+    &.gray-dark{
+        @import "skins/gray-dark";
+        @include angular-material-theme($gray-dark-theme);
+        @include theme-reset($gray-dark-theme);
+        $primary: mat-color(map-get($gray-dark-theme, primary)) !global;
+        $accent: mat-color(map-get($gray-dark-theme, accent)) !global;
+    }
+}

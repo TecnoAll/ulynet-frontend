@@ -1,0 +1,5 @@
+$teal-dark-primary: mat-palette($mat-teal, 700, 50, 800);
+$teal-dark-accent: mat-palette($mat-pink, 700, 50, 800);
+$teal-dark-warn: mat-palette($mat-red, A200);
+
+$teal-dark-theme: mat-dark-theme($teal-dark-primary, $teal-dark-accent, $teal-dark-warn);

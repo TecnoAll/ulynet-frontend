@@ -1,0 +1,26 @@
+
+<div [dir]="isRtl" (scroll)="onScrollEvent($event)">
+  <mat-sidenav-container>
+    <mat-sidenav #sidenav [(opened)]="undelyService.sidenavOpen" class="sidebar-area" mode="over">
+      <mat-nav-list>
+        <div class="close-btn-sidebar">
+          <button mat-icon-button (click)="undelyService.sidenavOpen = false"><mat-icon>close</mat-icon></button>
+        </div>
+        <undely-SidebarMenu *ngFor="let item of menuItems.getMainMenu()" [item]="item"></undely-SidebarMenu>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav class="em-sidebar" #paymentSidenav [(opened)]="undelyService.paymentSidenavOpen" position="end" mode="over" >
+      <undely-PaymentDetailSideBar></undely-PaymentDetailSideBar>
+    </mat-sidenav>
+    <div class="rtl-layout"><a matRipple class="text-xl" href="javascript:void(0);" (click)="changeDirection()">RTL</a></div> 
+    <ngx-toasta></ngx-toasta>
+    <!-- <HeaderOne *ngIf="this.currentUrl != '/home-two' && this.currentUrl != '/home-three'"></HeaderOne> -->
+    <!-- <HeaderTwo *ngIf="this.currentUrl == '/home-two' && this.currentUrl != '/home-three'"></HeaderTwo> -->
+    <HeaderTwo></HeaderTwo>
+    <!-- <HeaderThree *ngIf="this.currentUrl != '/home-two' && this.currentUrl == '/home-three'"></HeaderThree> -->
+    <div class="main">
+      <router-outlet></router-outlet>
+    </div>
+    <FooterOne></FooterOne>
+  </mat-sidenav-container>
+</div>

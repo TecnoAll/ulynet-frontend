@@ -1,0 +1,50 @@
+<div *ngIf="isLoggedIn">
+  <button mat-mini-fab class="log-in-user" [matMenuTriggerFor]="userMenu">
+    <img *ngIf="!user.profilePath" src="assets/images/log-in-user.jpg" width="250" height="250" alt="log-in-user">
+    <img *ngIf="user.profilePath" [src]="user.profilePath" width="250" height="250" alt="log-in-user">
+  </button>
+<mat-menu #userMenu="matMenu" [overlapTrigger]="false" class="toolbar-dropdown-menu user-menu">
+    <!--<span (mouseleave)="userMenuTrigger.closeMenu()">-->   
+        <mat-card *ngIf="!user"  fxLayout="row" fxLayoutAlign="space-around center" class="user-info p-0">
+        <div fxLayout="row" fxLayoutAlign="center center">
+                <mat-spinner color="accent"></mat-spinner> 
+            </div>  
+        </mat-card>    
+        <mat-card *ngIf="user" fxLayout="row" fxLayoutAlign="space-around center" class="user-info p-0">
+            <mat-card-header>
+                <img [src]="user.profilePath" mat-card-avatar alt="user-image">
+                <mat-card-title>{{user.name}} {{user.surname}}</mat-card-title>
+                <!-- <mat-card-subtitle>{{user.userType}}</mat-card-subtitle> -->
+                <mat-card-subtitle>Member since {{user.createdAt | date: "MMMM d, y"}}</mat-card-subtitle>
+            </mat-card-header>
+        </mat-card>  
+        <mat-divider></mat-divider>
+        <a mat-menu-item routerLink="/account/profile"> 
+            <mat-icon>person</mat-icon>
+            <span>Profile</span> 
+        </a>
+        <a mat-menu-item routerLink="/settings"> 
+            <mat-icon>settings</mat-icon>
+            <span>Settings</span> 
+        </a>
+        <a mat-menu-item routerLink="/help"> 
+            <mat-icon>help</mat-icon>
+            <span>Help</span> 
+        </a>
+        <mat-divider></mat-divider>
+        <a mat-menu-item> 
+            <mat-icon>power_settings_new</mat-icon>
+            <span>Logout</span> 
+        </a>
+    <!--</span>-->
+</mat-menu>
+</div>
+<div *ngIf="!isLoggedIn">
+    <button mat-mini-fab class="log-in-user" [matMenuTriggerFor]="loginuser">
+      <mat-icon>account_circle</mat-icon>
+    </button>
+    <mat-menu #loginuser="matMenu">
+      <button mat-menu-item [routerLink]="['/session/signin']"><i class="material-icons mr-1">account_circle</i><span>Sign In</span></button>
+      <button mat-menu-item [routerLink]="['/session/signup']"> <i class="material-icons mr-1">person_add</i> <span>Sign Up</span></button>
+    </mat-menu>  
+  </div>

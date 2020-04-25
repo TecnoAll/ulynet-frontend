@@ -1,0 +1,58 @@
+<div class="inner-container section-gap-lg">
+  <div class="container">
+    <div fxLayout='row wrap' fxLayoutAlign="center center">
+      <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="80" fxFlex.lg="70" fxFlex.xl="70">
+        <div fxLayout='row wrap' fxLayoutAlign="center center">
+          <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+            <div class="form-img register-image">
+            </div>
+          </div>
+          <div fxFlex.xs="100" fxFlex.sm="100" fxFlex.md="50" fxFlex.lg="50" fxFlex.xl="50">
+            <mat-card class="register-form form-margin">
+              <h4>Registro</h4>
+              <form [formGroup]="form" (ngSubmit)="onSubmit(form.value)">
+                <div class="mb-4">
+                  <mat-form-field class="w-100">
+                    <input matInput type="text" placeholder="Nombre" formControlName="name" required>
+                    <mat-error *ngIf="form.controls.name.errors?.required">Tu Nombre es Requerido</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="w-100">
+                    <input matInput type="text" placeholder="Apellido" formControlName="surname" required>
+                    <mat-error *ngIf="form.controls.surname.errors?.required">Tu Apellido es Requerido</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="w-100">
+                      <mat-select #selected placeholder="Account Type" formControlName="userType">
+                        <mat-option *ngFor="let item of types" [value]="item.value">
+                          {{item.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                  </mat-form-field>
+                  <mat-form-field *ngIf="selected.value==='student'" class="w-100">
+                    <input matInput type="text" placeholder="Student Id" formControlName="studentId">
+                  </mat-form-field>
+                  <mat-form-field class="w-100">
+                    <input matInput type="email" placeholder="Correo" formControlName="email" required>
+                    <mat-error *ngIf="form.controls.email.errors?.required">Tu Correo es Requerido</mat-error>
+                    <mat-error *ngIf="form.controls.email.hasError('invalidEmail')">Su Correo no es Correcto</mat-error>
+                  </mat-form-field>
+                  <mat-form-field class="w-100">
+                    <input matInput type="password" placeholder="Contraseña" formControlName="password" required>
+                    <mat-error *ngIf="form.controls.password.errors?.required">Tu Contraseña es Requerida</mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="mb-4">
+                  <mat-form-field class="w-100">
+                    <input matInput type="password" placeholder="Repita la Contraseña" formControlName="confirmPassword" required>
+                    <mat-error *ngIf="form.controls.confirmPassword.errors?.required">vuelva a escribir la Contraseña, es requerido</mat-error>
+                  </mat-form-field>
+                </div>
+                <button color="accent" class="button-lg mb-3" mat-raised-button type="submit" [disabled]="!form.valid">Submit</button>
+              <div> ¿Ya tienes cuenta? entonces <a class="accent-color" [routerLink]="['/session/signin']">Inicia Sesión</a></div>
+              </form>
+            </mat-card>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
